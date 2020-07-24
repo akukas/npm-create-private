@@ -10,6 +10,10 @@ const pkg_default = {
   scripts: {},
 }
 
+if (process.argv.includes("module")) {
+  pkg_default.type = "module";
+}
+
 function create_private(package_json_filename='package.json') {
   return new Promise((resolve, reject) =>
     fs.readFile(package_json_filename, 'utf-8',
